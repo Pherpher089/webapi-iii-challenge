@@ -12,10 +12,10 @@ server.use(logger);
 server.use('/api/user', userRouter);
 server.use('/api/post', postRouter);
 
-
+const messageOfTheDay = process.env.MOTD || 'No env vars'
 //Request Handeler
 server.get('/', (req, res) => {
-  res.status(200).json({message: process.env.MOTD})
+  res.status(200).json({message: messageOfTheDay)
 });
 
 //custom middleware
