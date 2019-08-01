@@ -1,7 +1,7 @@
 const express = require('express');
 const userRouter = require('./users/userRouter.js');
 const postRouter = require('./posts/postRouter.js');
-
+const morgan = require('morgan')
 //Apply middleware 
 const server = express();
 server.use(express.json());

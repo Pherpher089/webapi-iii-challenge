@@ -103,7 +103,7 @@ router.put('/:id', validateUserId, async (req, res) => {
         res.status(401).json({errorMessage: 'Please provide an id as parameter in the request route'})
     }
 
-    if(!name) {
+    if(!changes) {
         res.status(401).json({errorMessage: 'No changes were provided'})
     }
 
@@ -116,7 +116,7 @@ router.put('/:id', validateUserId, async (req, res) => {
     } 
 })
 
-//#region custom middleware
+//custom middleware
 
 function validateUserId(req, res, next) {
     const id = req.params.id;
@@ -164,6 +164,5 @@ function validatePost(req, res, next) {
     
     next();
 };
-//#endregion
 
 module.exports = router;
