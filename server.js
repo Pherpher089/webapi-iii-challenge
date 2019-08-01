@@ -1,7 +1,9 @@
 const express = require('express');
 const userRouter = require('./users/userRouter.js');
 const postRouter = require('./posts/postRouter.js');
-const morgan = require('morgan')
+const morgan = require('morgan');
+require('dotenv').config();
+
 //Apply middleware 
 const server = express();
 server.use(express.json());
@@ -13,7 +15,7 @@ server.use('/api/post', postRouter);
 
 //Request Handeler
 server.get('/', (req, res) => {
-  res.status(200).json({message: 'Lets write some express middleware!'})
+  res.status(200).json({message: process.env.MOTD})
 });
 
 //custom middleware
